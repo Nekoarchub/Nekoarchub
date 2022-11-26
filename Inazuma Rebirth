@@ -1,0 +1,41 @@
+if game.PlaceId == 9586878618 then
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+local Window = OrionLib:MakeWindow({Name = "Floppa Hub kak", HidePremium = false, IntroText = "FloppaHub", SaveConfig = true, ConfigFolder = "floppaconfig"})
+
+--Valuse
+_G.ChargeBallpowerFaster = true
+
+
+
+--Functions
+
+function ChargeBallpowerFaster()
+   _G.ChargeBallpowerFaster = true do 
+    game:GetService("Players").LocalPlayer.Data.Power.Value = 10000
+    end
+end
+
+
+
+-- Tab
+local Tab = Window:MakeTab({
+    Name = "something",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+--Toggles
+Tab:AddToggle({
+    Name = "Charge Ball power Faster",
+    Default = false,
+    Callback = function(Value)
+        _G.ChargeBallpowerFaster = Value
+        ChargeBallpowerFaster()
+    end    
+})
+
+
+
+
+end
+OrionLib:Init()
